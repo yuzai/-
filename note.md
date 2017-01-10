@@ -262,9 +262,9 @@ var last = JSON.stringify(obj);
 26. 其实是对页面中的每一个元素加上一个随机颜色的outline
 能解释一下这段代码的意思吗？
 
-```js
-[].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})
-```
+  ```js
+  [].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})
+  ```
 
 27. js延迟加载的方法？
     1. defer标签，延迟加载脚本，在script中加入defer标签，代码会在dom解析结束后下载执行，对inline不起作用,不支持document.write;
