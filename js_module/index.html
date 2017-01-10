@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>js立即执行函数模块化编程测试</title>
+  <style>
+    .back{
+      padding:20px;
+      padding-left: 30%;
+      background-color: blue;
+    }
+  </style>
+  <script defer src='test.js'>
+  </script>
+  <script src="../js_requirejs/require.js" defer async="true" ></script>
+</head>
+
+<body>
+  <div class='back' id='div1'>
+    <h2>利用立即执行进行模块化设计</h2>
+    <p>建立了一个全局变量s</p>
+    <p>s有两个方法，也定义了一些内部私有变量</p>
+    <p>在外部只能访问到s的两个方法，不能访问到私有变量</p>
+    <p>避免了污染全局变量的作用</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>js前端路由测试</title>
+  <style>
+    body{
+      background-color: skyblue;
+
+    }
+    .back{
+      padding:20px;
+      width:70%;
+      margin:auto;
+    }
+  </style>
+  </script>
+  <script type="text/javascript">
+     function downloadJSAtOnload() {
+         var element = document.createElement("script");
+        element.src = "lunzi.js";
+        document.body.appendChild(element);
+     }
+     if (window.addEventListener)
+        window.addEventListener("load",downloadJSAtOnload, false);
+     else if (window.attachEvent)
+        window.attachEvent("onload",downloadJSAtOnload);
+     else window.onload =downloadJSAtOnload;
+   </script>
+</head>
+
+<body>
+  <div class='back' id='div1'>
+    <h2>测试js前端路由-hash</h2>
+    <li>
+      <a href="#/">skyblue</a>
+      <a href="#/blue">yellow</a>
+      <a href="#/green">green</a>
+      <a href="#/color">color</a>
+    </li>
+  </div>
+  <div class='back' id='div1'>
+    <h2>测试js前端路由-history</h2>
+    <li>
+      <a href="#/">skyblue</a>
+      <a href="#/blue">yellow</a>
+      <a href="#/green">green</a>
+    </li>
+  </div>
+</body>
+
+</html>
