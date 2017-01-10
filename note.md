@@ -419,3 +419,6 @@ var last = JSON.stringify(obj);
 66. 给一个dom同时绑定两个点击事件，一个用捕获，一个用冒泡。会执行几次事件，会先执行冒泡还是捕获？
     两次，先执行捕获，再执行冒泡
 67. 使用JS实现获取文件扩展名？
+      (function(filename){
+        console.log( filename.slice(filename.lastIndexOf('.')===-1?filename.length:filename.lastIndexOf('.')+1));
+      })('.index')
