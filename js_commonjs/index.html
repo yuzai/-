@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>js模块测试</title>
+  <style>
+    .back{
+      padding:20px;
+      padding-left: 30%;
+      background-color: blue;
+    }
+  </style>
+  <script src='tiny-require.js'>
+  </script>
+</head>
+
+<body>
+  <div class='back' id='div1'>
+    <h2>测试js延迟加载</h2>
+    <p>背景颜色原本是蓝色的，js代码中获取背景的DOM,并修改颜色为绿色</p>
+    <p>js代码放在head中，会比DOM先加载，但是获取不到id,所以不会更改颜色</p>
+    <p>在script中加入defer=true或者async=true可以解决这个问题</p>
+    <p>不支持inline,不支持document.write()</p>
+  </div>
+</body>
+<script src='main.js'>
+</script>
+
+</html>

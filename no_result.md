@@ -15,3 +15,28 @@
 38. ECMAScript6 怎么写class么，为什么会出现class这种东西?**有待补充**
 41. *DOM操作*——怎样添加、移除、移动、复制、创建和查找节点?**有待阅读高级程序设计**
 43. *数组和对象*有哪些原生方法，列举一下？**比较多，有待补充**
+46. 如何编写高性能的Javascript？**有待研究**
+47. 那些操作会造成内存泄漏？**有待研究**
+    内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。
+    垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。
+
+    setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
+    闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）
+48. jquery相关。。**有待研究**
+55. 知道各种JS框架(Angular, Backbone, Ember, React, Meteor, Knockout...)么? 能讲出他们各自的优点和缺点么?
+    **有待整理**
+56. Underscore 对哪些 JS 原生对象进行了扩展以及提供了哪些好用的函数方法？
+    **有待整理**
+58. (如果会用node)知道route, middleware, cluster, nodemon, pm2, server-side rendering么?
+    **nodejs相关**
+59.  解释一下 Backbone 的 MVC 实现方式？
+    **MVC相关应该不是重点**
+61. 如何测试前端代码么? 知道BDD, TDD, Unit Test么? 知道怎么测试你的前端工程么(mocha, sinon, jasmin, qUnit..)?
+    **前端测试**
+62. 前端templating(Mustache, underscore, handlebars)是干嘛的, 怎么用?
+    **前端模板引擎**
+    简述一下 Handlebars 的基本用法？
+    简述一下 Handlerbars 的对模板的基本处理流程， 如何编译的？如何缓存的？
+65. 做的项目中，有没有用过或自己实现一些 polyfill 方案（兼容性处理方案）？
+    比如： html5shiv、Geolocation、Placeholder **事实上，我没有**
+67. 使用JS实现获取文件扩展名？
