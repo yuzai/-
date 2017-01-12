@@ -1,0 +1,121 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>underscorejs测试</title>
+  <style>
+    .back{
+      padding:20px;
+      padding-left: 30%;
+      background-color: skyblue;
+    }
+    table tr td{
+      outline:1px solid white;
+      padding:10px;
+    }
+  </style>
+  <script src="underscore.js"></script>
+</head>
+
+<body>
+  <div class='back' id='div1'>
+    <h2>underscore测试</h2>
+    <table>
+      <tr>
+        <td>collections</td>
+        <td>shuffle,groupBy,sample</td>
+      </tr>
+      <tr>
+        <td>Arrays</td>
+        <td>flatten,zip/unzip,object,range,isEqual</td>
+      </tr>
+      <tr>
+        <td>Functions</td>
+        <td>bind,partial,memoize,once,delay</td>
+      </tr>
+      <tr>
+        <td>Objects</td>
+        <td>keys,allKeys,values,mapObject,invert,extend,extendOwn,clone,isEqual</td>
+      </tr>
+      <tr>
+        <td>Utility</td>
+        <td>random,uniqueId,escape,unescape,mixin</td>
+      </tr>
+      <tr>
+        <td>chainning</td>
+        <td>_.chain(obj).clone().map(function(value){return value;}).value();</td>
+      </tr>
+      <tr>
+        <td>OOP style</td>
+        <td>_([1, 2, 3]).map(function(n){ return n * 2; });</td>
+      </tr>
+    </table>
+  </div>
+  <script>
+      console.log('collections:')
+      var obj = {
+        'name':'xiaobo',
+        'age' : 20,
+        'marry':false,
+        'gf':true
+      }
+      console.log(_.map(obj,function(value,key){ return key+':'+value;}));
+      console.log(_.filter(obj,function(value,key){ return true}));
+      console.log(_.groupBy([1,2,3,4,5],
+        function(value){
+          if(value>4){
+              return 'A';
+            }
+          else if(value>2){
+              return 'B';
+            }
+            else {
+              return 'C';
+            }
+          }))
+      console.log(_.shuffle(obj));
+      console.log(_.sample(obj, 2));
+      var names = ['Adam', 'Lisa', 'Bart'];
+      var scores = [85, 92, 59];
+      console.log(_.object(names, scores));
+      console.log(_.range(1,-10));
+      function sayhello(){
+        console.log(this.name);
+      };
+      sayhello();
+      (sayhello.bind(obj))();
+      var say = _.bind(sayhello,obj);
+      say();
+      var pow2N = _.partial(Math.pow,2);
+      console.log(pow2N(3));
+      console.log(pow2N(4));
+      var cube = _.partial(Math.pow,_,3);
+      console.log(cube(3));
+      console.log(cube(4));
+      var fac = _.memoize(function(n){
+        console.log('start calculate ' + n + '!...');
+        if(n<2)
+          return 1;
+        else {
+          return n*fac(n-1);
+        }
+      });
+      console.log(fac(10));
+      console.log(fac(9));
+      console.log(fac(10));
+      var register = _.once(function(){
+        console.log('hello');
+      });
+      register();
+      register();
+      register();
+      _.delay(console.log,2000,'hello world');
+      _.mixin({
+        sayHello:function(){console.log('yes')}
+      });
+      _.sayHello();
+  </script>
+</body>
+
+</html>

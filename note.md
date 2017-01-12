@@ -416,7 +416,40 @@ var last = JSON.stringify(obj);
 55. 知道各种JS框架(Angular, Backbone, Ember, React, Meteor, Knockout...)么? 能讲出他们各自的优点和缺点么?
     **有待整理**
 56. Underscore 对哪些 JS 原生对象进行了扩展以及提供了哪些好用的函数方法？
-    **有待整理**
+    1. collections:Array,Object.
+      提供的方法：map,max,min,filter,shuffle,every,some,groupBy,sample等方法，比较方便的有 **shuffle,sample,groupBy**
+      当操作数是对象的时候，有些方法只针对属性值，不针对键值
+    2. Arrays:
+      提供的方法:
+      1. first/last，
+      2. flatten（变成1维数组）
+      3. zip/unzip():多个数组合并/解除合并
+      4. \_.object(a,b):数组object,a是key,b是value
+      5. \_.range(a,b[,c]):a-(b-1)步长为c的数组
+      6. \_.isEqual(a,b):数组中有对象元素会进行深度比较（与键值的顺序无关）。
+    3. Functions:
+      1. bind. es5已经有了
+      2. partial，偏函数，函数缺少值用_替换，简化函数的书写
+      3. memoize，缓存函数计算出来的数值，减少计算事件
+      4. once,函数只能执行一次
+      5. delay，类似setTimeout,参数传递比较方便。
+    4. Objects:
+      1. keys/allKeys
+      2. values,不包括原型
+      3. mapObject
+      4. invert,键值和属性值反转
+      5. extend,extendOwn,几个对象进行合并，键值相同取最后一个
+      6. clone，复制对象，浅复制。新对象中 *引用类型* 的数据的修改会影响原对象的数据
+      7. isEqual：比较对象的键值和属性值是否相同，与键值的顺序无关。
+    5. Utility
+       Utility部分比较有用的是生成随机数和生成ID，还包括增加自定义函数的mixin，转义html的escape，以及一个简单的html模板函数。
+       1. random(a,b):产生从a-b的随机整数，[a,b]
+       2. uniqueId():产生独一无二的Id
+       3. mixin:可以自定义函数hello()，\_.hello就可以执行
+       4. escape,unescape把字符串转义成html，主要是<>等关键字的转义
+    6. chainning,
+       \_.函数的链式调用，想要使用clone,再map。可以采用chain实现
+       \_.chain(obj).clone().map(function(value){return value;}).value();
 57. nodejs适用场景？
     优点：高并发  适合I/O密集型应用
     缺点：

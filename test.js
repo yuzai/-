@@ -48,3 +48,24 @@ console.log(s.replace(t,function($0,$1){
   var temp = ($1 in q)?q[$1]:'';
   return '{'+(($1 in q)?q[$1]:$1)+'}';
 }));
+
+var name = 'xiaohuan';
+function f3(){
+  console.log(this.name);
+}
+function f2(){
+  console.log(this.name);
+}
+var a = {
+  name:'xiaobo',
+};
+function f1(){
+  console.log(this.name);
+  (function f2(){
+    console.log(this.name);
+    (function f3(){
+      console.log(this.name);
+    })();
+  })();
+}
+f1();

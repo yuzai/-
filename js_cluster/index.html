@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script>
+      function test(i){
+        return function(){alert(i)}
+      }
+      function init(){
+        var a=[];
+        var pElement = document.getElementsByTagName('p');
+        //console.log(typeof(pElement[0]));//object
+        for(var i=0;i<pElement.length;i++)
+        {
+          a.push(i);
+          pElement[i].onclick = test(i);
+        }
+      }
+    </script>
+</head>
+<body onload = 'init()'>
+<p>段落1</p>
+<p>段落2</p>
+<p>段落3</p>
+<p>段落4</p>
+</body>
+</html>
