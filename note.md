@@ -309,7 +309,7 @@ var last = JSON.stringify(obj);
     1. defer标签，延迟加载脚本，在script中加入defer标签，代码会在dom解析结束后下载执行，对inline不起作用,不支持document.write;
     2. async标签，异步加载脚本，会遇到script后异步下载代码，不会停止对DOM的解析，在script下载完之后，不论代码加载完没，都会立即执行script代码，对inline不起作用,有可能会出错。不支持document.write()
     3. 动态创建DOM方式：onload之后新建一个script，将src指向目标js文件，实现js的延迟加载，比较常用。
-    4. ajax获取js代码，然后eval执行
+    4. ajax获取js代码，然后eval执行或者动态加载
 28. Ajax 是什么? 如何创建一个Ajax？
     ajax全称是 Asynchronous javascript and xml.异步传输js和xml
     异步就是指在向服务器发送请求的时候，不必等待结果，可以做其它事情，等有了结果会根据设定进行后续操作。页面不会整体刷新，提高用户体验。见js_ajax
