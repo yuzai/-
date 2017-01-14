@@ -1,3 +1,4 @@
+node包nrm可以选择源
 1. js基本数据类型：boolean,string,number,null,undefined
 2. js的内置对象：数据封装类对象：object,Number,Array,String,Boolean
 其它对象：Function,Arguments,Math,Date,RegExp,Error

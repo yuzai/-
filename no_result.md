@@ -23,6 +23,23 @@
 
     setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
     闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）
+    1. 全局变量：
+       定义的全局变量不会被回收
+    2. 闭包引起的内存泄漏
+
+       ```js
+       var leaks = (function(){
+         var lead = 'xxxx';
+         return function(){
+           console.log(lead);
+         }
+       })()
+       ```
+
+     3. dom清空或者删除时，事件未清除导致内存泄漏
+     4. 子元素存在引用引起的内存泄漏
+         
+
 48. jquery相关。。**有待研究**
 55. 知道各种JS框架(Angular, Backbone, Ember, React, Meteor, Knockout...)么? 能讲出他们各自的优点和缺点么?
     **有待整理**
@@ -46,3 +63,21 @@
     简述一下 Handlerbars 的对模板的基本处理流程， 如何编译的？如何缓存的？
 65. 做的项目中，有没有用过或自己实现一些 polyfill 方案（兼容性处理方案）？
     比如： html5shiv、Geolocation、Placeholder **事实上，我没有**
+67. 自己补充：gulp的作用
+        Sass编译
+        Css Js 图片压缩
+        Css Js 合并
+        Css Js 内联
+        Html的include功能
+        Autoprefixer
+        自动刷新
+        去缓存
+        Handlebars模板文件的预编译
+        雪碧图
+        ESLint
+        rem移动端适配方案
+        1.搭建web服务器
+        2.使用预处理器Sass，Less
+        3.压缩优化，可以压缩JS CSS Html 图片
+        4.自动将更新变化的代码实时显示在浏览器
+        5.前端测试
