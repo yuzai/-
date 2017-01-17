@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>html localStorage</title>
+  <link rel = 'stylesheet' href = 'style.css'>
+</head>
+
+<body>
+  <label for = 'sitename'>网站名：</label>
+  <input type = 'text' id='sitename' name='sitename' />
+  <br/>
+  <label for = 'site'>网站地址：</label>
+  <input type = 'text' id='site' name='site' />
+  <br/>
+  <input type='button' value='新增记录' onclick = 'save()' />
+  <br/>
+  <div id='list'>
+
+  </div>
+  <script>
+    loadAll();
+    function deleteStorege(){
+      var event = window.event;
+      var sitename = event.target.parentNode.previousSibling.previousSibling.innerHTML;
+      localStorage.removeItem(sitename);
+      document.getElementById('tbody').removeChild(event.target.parentNode.parentNode);
+    };
+    function save(){
+      if(typeof(Storage)!=='undefined'){
+        var sitename = document.getElementById('sitename').value;
+        var value    = document.getElementById('site').value;
+        localStorage[sitename] = value;
+        var node = document.createElement('tr');
+        node.innerHTML = '<td>'+sitename+'</td><td>'+value+'</td><td><button onclick="deleteStorege()">delete</button></td>';
+        document.getElementById('tbody').appendChild(node);
+      }else {
+        document.getElementById('list').innerHTML = '不支持localStorage';
+      }
+    }
+    function loadAll(){
+      if(localStorage.length>0){
+        var result = '<table>';
+        result += '<thead><tr class="show"><td>网站名称</td><td>网址</td><td>deleteAll</td></tr></thead><tbody id="tbody">';
+        for(var i=0;i<localStorage.length;i++){
+          var sitename = localStorage.key(i);
+          var value    = localStorage[sitename];
+          result += '<tr class="show"><td class="type1">'+sitename+'</td><td class="type1">'+value+'</td><td class="type2"><button onclick="deleteStorege()">delete</button></td></tr>';
+        }
+        result += '</tbody></table>';
+        document.getElementById('list').innerHTML = result;
+      }else {
+        document.getElementById('list').innerHTML = 'no data now'
+      }
+    }
+  </script>
+</body>
+</html>
