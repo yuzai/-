@@ -12,9 +12,9 @@ Router.prototype.refresh = function(){
 Router.prototype.init = function(){
   window.addEventListener('load',this.refresh.bind(this),false);
   window.addEventListener('hashchange',this.refresh.bind(this),false);
-  console.log(location.hash)
-  if(location.hash.slice(1)!=='/')
-      location.hash = '#/';
+  // console.log(location.hash)
+  // if(location.hash.slice(1)!=='/')
+  //     location.hash = '#/';
 }
 var route = new Router();
 route.init();

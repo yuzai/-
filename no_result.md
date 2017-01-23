@@ -38,9 +38,9 @@
 
      3. dom清空或者删除时，事件未清除导致内存泄漏
      4. 子元素存在引用引起的内存泄漏
-         
 
-48. jquery相关。。**有待研究**
+
+48. jquery相关。。**有待研究见jQuery文件夹**
 55. 知道各种JS框架(Angular, Backbone, Ember, React, Meteor, Knockout...)么? 能讲出他们各自的优点和缺点么?
     **有待整理**
 58. (如果会用node)知道route, middleware, cluster, nodemon, pm2, server-side rendering么?
