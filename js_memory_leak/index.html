@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>memory leak</title>
+  <style>
+    #div1{
+      width:200px;
+      height:200px;
+      background-color:skyblue;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='div1'>内存泄漏测试</div>
+  <div>
+    <p>IE<8 内存泄漏，删除绑定了事件的元素，并不能删除元素和事件</p>
+    <p>IE<9 内存泄漏，xhr请求结束后，并不能清除xhr</p>
+    <p>所有浏览器，setInterval,setTimeout,当clearInterval会清除所有，但是如果函数本身不执行任何操作但是不进行clearInterval会泄漏</p>
+    <p>所有浏览器，闭包，并不是每一个闭包中的外部变量都有用，将不用的变量设置为null可以解决</p>
+  </div>
+  <script src='leak.js'></script>
+</body>
+
+
+</html>

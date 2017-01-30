@@ -11,17 +11,7 @@
       background-color: skyblue;
     }
   </style>
-  <script type="text/javascript">
-     function downloadJSAtOnload() {
-         var element = document.createElement("script");
-        element.src = "ajax.js";
-        document.body.appendChild(element);
-     }
-     if (window.addEventListener)
-        window.addEventListener("load",downloadJSAtOnload, false);
-     else if (window.attachEvent)
-        window.attachEvent("onload",downloadJSAtOnload);
-     else window.onload =downloadJSAtOnload;
+  <script src = 'ajax2.js'>
    </script>
 </head>
 
@@ -47,6 +37,7 @@
     </table>
     <button id='test2'>ajaxpost</button>
   </div>
+  <script src = 'main.js'></script>
 </body>
 
 </html>

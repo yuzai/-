@@ -1,7 +1,7 @@
 var http = require('http');
 var url = require('url');
 var util = require('util');
-var querystring = require('querystring');
+
 http.createServer(function(req,res){
   console.log(req.method);
   if(req.method==='GET'){
@@ -17,11 +17,13 @@ http.createServer(function(req,res){
             post += chunk;
         });
 
-        // 在end事件触发后，通过querystring.parse将post解析为真正的POST请求格式，然后向客户端返回。
+        // 在end事件触发后然后向客户端返回。
         req.on('end', function(){
             post = JSON.parse(post);
+            console.log(post);
             res.writeHead(200, {'Content-Type': 'text/html',"Access-Control-Allow-Origin":"*"});
             res.end(util.inspect(post));
         });
     }
 }).listen(3000);
+console.log('server is listening on "3000"');
