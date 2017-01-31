@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>测试jsonp</title>
+        <meta charset='utf-8'>
+        <!-- 封装的一个ajax通信协议，有bug,但是用在此处做测试还是没有问题的 -->
+        <script src='ajax2.js'></script>
+    </head>
+    <body>
+        <h1>测试jsonp</h1>
+        <p>用node搭建能够解析jsonp请求的服务器，前端通过script发送jsonp请求，通过回调处理服务器返回的数据</p>
+        <button onclick = 'ajax.send()'>测试ajax</button>
+        <button onclick = 'jsonp()'>测试jsonp</button>
+        <script>
+            var jsonpdata;
+            function test(data){
+                jsonpdata = data;
+                alert(data.name);
+            };
+            var ajax = new Ajax({
+              method : 'get',
+              url : 'http://localhost:3000/',
+              callback : function(data){console.log(data)},
+              data : {}
+            });
+            function jsonp(){
+              if(jsonpdata === undefined){
+                var temp = document.createElement('script');
+                temp.src = "http://localhost:3000/jsonp?callback=test";
+                document.body.appendChild(temp);
+              }else {
+                test(jsonpdata);
+              }
+            }
+        </script>
+        <!-- <script src="http://localhost:3000/jsonp?callback=test"></script> -->
+    </body>
+</html>

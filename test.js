@@ -80,3 +80,16 @@ function testfinally(){
 	}
 }
 console.log(testfinally());
+
+function testcreate(){
+	var person = {
+		name:'xiaobo',
+		age:'24'
+	};
+	var newperson = Object.create(person);
+	console.log(newperson.name);
+	console.log(newperson.age);
+	console.log(newperson);
+	console.log(person);
+}
+testcreate();
