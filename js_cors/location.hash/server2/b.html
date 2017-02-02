@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>测试页面b</title>
+<style>
+   div{
+   	margin:10%;
+   }
+</style>
+</head>
+<body>
+   <div>
+	   <h1>这是测试页面b</h1>
+	   <p>运行在http:localhost:3000</p>
+	   <p>与测试页面a（运行在localhost:8000）端口不同，不符合同源规则，无法在iframe中进行相互信息的获取</p>
+	   <p>可以通过创建一个新的同源iframe的location.hash进行信息的传递</p>
+	   <p>但是本iframe和父iframe不同源，不能修改，所以需要在b中新建a的同源iframe,在该iframe中对父父元素的href或者Hash进行修改，太过麻烦，弃坑</p>
+   </div>
+   <script>
+
+   window.addEventListener('hashchange',function(){
+   	alert(location.hash);
+   	console.log(parent.location.href);
+   })
+   </script>
+</body>
+
+</html>

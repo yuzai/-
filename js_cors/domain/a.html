@@ -6,7 +6,15 @@
 
 <body>
   <h3>测试跨域的问题这里的域名是http://localhost:3000/a.html</h3>
-  <a href = './b.html'>b.html</a>
+  <a href = './b.html'>b.html</a><br>
+  <script>
+     var iframe = document.createElement('iframe');
+     iframe.src = 'http://localhost:3000/b.html';
+     iframe.onload = function(){
+     	console.log(iframe.contentWindow.document);
+     }
+     document.body.appendChild(iframe);
+  </script>
 </body>
 
 <html>

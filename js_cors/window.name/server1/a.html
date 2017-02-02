@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>测试页面a</title>
+<style>
+   div{
+      margin:10%;
+   }
+</style>
+</head>
+<body>
+   <div>
+   <h1>这是测试页面a</h1>
+   <p>运行在http:localhost:5000</p>
+   <p>与测试页面b（运行在localhost:3000）端口不同，不符合同源规则，无法在iframe中进行相互信息的获取</p>
+   <p>可以通过window.name进行获取，可以存储2MB的字符串数据</p>
+   <ul>
+     <p>内置对话：</p>
+     <li>我是A</li>
+     <li>哈哈，我是B</li>
+     <li>你好，B</li>
+     <li>你好，A，初次见面，请多关照！</li>
+     <li>其它任何语句</li>
+     <li>这是B</li>
+   </ul>
+   <form id='form1'>
+     <input type='text' placeholder="输入想要发送给B页面的话" name='text'><input type='submit' value='发送'><br>
+     <p id = 'response'></p>
+   </form>
+   </div>
+   <script>
+   //完成一次数据通信
+   function changename(text){
+      window.name = text;
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';//隐藏iframe，后台直接通信
+      iframe.onload = function() {
+         iframe.contentWindow.name = window.name;
+         iframe.onload = function(){
+            iframe.onload = function(){
+               document.getElementById('response').innerHTML = iframe.contentWindow.name;
+               document.body.removeChild(iframe);
+            }
+            //step3: 再将src设定为blank，获取iframe.contentWindow.name，完成跨域通信
+            iframe.src = 'about:blank';
+         }
+         //step2:再将src设定为目标页面，此时在目标页面中访问window.name就是step1传递的参数，在b页面设置window.name为要传递的参数
+         iframe.src='http://localhost:3000';
+      };
+      //step1:先将src设置为blank，此时可以对iframe.contentWindow.name进行操作，将其设置为a页面要传递的参数
+      iframe.src = 'about:blank';
+      document.body.appendChild(iframe);
+   }
+   document.getElementById('form1');
+   form1.onsubmit = function(event){
+      event.preventDefault();
+      changename(event.target.text.value);
+   }
+   </script>
+</body>
+
+</html>

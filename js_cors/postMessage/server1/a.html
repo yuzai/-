@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>测试页面a</title>
+<style>
+   div{
+      margin:10%;
+   }
+</style>
+</head>
+<body>
+   <div>
+   <h1>这是测试页面a</h1>
+   <p>运行在http:localhost:5000</p>
+   <p>与测试页面b（运行在localhost:3000）端口不同，不符合同源规则，无法在iframe中进行相互信息的获取</p>
+   <p>可以通过iframe，postMessage进行通信</p>
+   <form id='form1'>
+     <input type='text' placeholder="输入想要发送给B页面的话" name='text'><input type='submit' value='发送'><br>
+     <p id = 'response'></p>
+   </form>
+   </div>
+   <script>
+   var iframe = document.createElement('iframe');
+   iframe.src = 'http://localhost:3000';
+   iframe.width = '100%';
+   iframe.height = '600px';
+
+   window.addEventListener('message',function(event){
+    console.log(event);
+    document.getElementById('response').innerHTML = event.data; 
+   })
+
+   document.body.appendChild(iframe);
+   function postmessage(text){
+      iframe.contentWindow.postMessage(text,'http://localhost:3000');
+   }
+   document.getElementById('form1');
+   form1.onsubmit = function(event){
+      event.preventDefault();
+      postmessage(event.target.text.value);
+   }
+   </script>
+</body>
+
+</html>

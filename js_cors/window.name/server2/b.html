@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>测试页面b</title>
+<style>
+   div{
+   	margin:10%;
+   }
+</style>
+</head>
+<body>
+   <div>
+	   <h1>这是测试页面b</h1>
+	   <p>运行在http:localhost:3000</p>
+	   <p>与测试页面a（运行在localhost:8000）端口不同，不符合同源规则，无法在iframe中进行相互信息的获取</p>
+	   <p>可以通过window.name进行信息的传递</p>
+   </div>
+   <script>
+   function changename(){
+	   	if(window.name === '我是A'){
+	   	   window.name = '哈哈，我是B';
+	   	}else if(window.name === '你好，B'){
+	   		window.name = '你好，A，初次见面，请多关照！'
+	   	}else{
+	   		window.name = '这是B';
+	   	}
+   }
+   changename();
+   </script>
+</body>
+
+</html>
