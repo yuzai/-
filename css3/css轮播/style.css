@@ -1,0 +1,50 @@
+.wrapper{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height:600px;
+}
+.carousel-wrap{
+  width:500px;
+  height:300px;
+  overflow:hidden;
+}
+.images-container{
+  position:relative;
+  display:inline;
+}
+.images-container p{
+  position:absolute;
+  bottom:0px;
+  right:10px;
+  font-size:15px;
+  color:red;
+}
+.carousel-images{
+  width:500px;
+  height:300px;
+}
+.carousel-container{
+  width:500%;
+  height:100%;
+  font-size:0;
+  animation:carousel 10s infinite ease-in-out;
+}
+
+@keyframes carousel {
+  0% {transform:translate(0,0)}
+  10% {transform:translate(0,0)}
+  20% {transform:translate(-20%,0)}
+
+  30% {transform:translate(-20%,0)}
+  40% {transform:translate(-40%,0)}
+
+  50% {transform:translate(-40%,0)}
+  60% {transform:translate(-60%,0)}
+
+  70% {transform:translate(-60%,0)}
+  80% {transform:translate(-80%,0)}
+
+  90% {transform:translate(-80%,0)}
+  100% {transform:translate(0,0)}
+}

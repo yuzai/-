@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>css居中</title>
+    <link rel='stylesheet' href='style.css'>
+</head>
+
+<body>
+    <h1> 水平居中</h1>
+    <div>
+        <h3>父元素相对定位，子元素绝对定位</h3>
+        <div class='parent1'>
+            <div class='children1' style="width:300px;height:300px;">
+                <p>通用居中方式</p>
+                <pre>
+        .parent1{
+          position:relative;
+          background-color: yellow;
+        }
+        .children1{
+          background-color: green;
+          position:absolute;
+          left:50%;
+          transform: translateX(-50%);
+        }
+      </pre>
+            </div>
+            <div style="width:300px;height:300px;">子元素采用absolute会导致没有将parent撑起，单独新建一个div将其撑起</div>
+        </div>
+        <h3>flex布局</h3>
+        <div class='parent2'>
+            <div class='children2' style='width:300px;height:300px'>
+                <pre>
+        .parent2{
+          display:flex;
+          justify-content: center;
+          background-color: yellow;
+        }
+        .children2{
+          background-color: green;
+        }
+      </pre>
+            </div>
+        </div>
+        <h3>居中的元素为常规文档流中的内联元素(display: inline)</h3>
+        <div class='parent3'>
+            <span class='children3'>
+        .parent2{
+          text-align:center;
+        }常见的内联元素有：span, a, img, input, label 等等
+      </span>
+        </div>
+        <h3>居中的元素为常规文档流中的块元素(display: block)</h3>
+        <p>方式一：设置 margin</p>
+        <div class='parent4'>
+            <div class='children4'>
+                常见的块元素：div, h1~h6, table, p, ul, li 等等
+                <pre>
+           .parent4{
+             background-color: #33ff33;
+           }
+           .children4{
+             margin:0 auto;
+             width:300px;
+             background-color: skyblue;
+           }
+         </pre>
+            </div>
+        </div>
+        <p>方式二：修改为 inline-block 属性</p>
+        <div class='parent5'>
+            <div class='children5'>
+                <p>常见的块元素：div, h1~h6, table, p, ul, li 等等</p>
+                <pre>
+           .parent5{
+             background-color: #33ff33;
+             text-align: center;
+           }
+           .children5{
+             display:inline-block;
+             background-color: skyblue;
+           }
+         </pre>
+            </div>
+        </div>
+        <h3>居中的元素为浮动元素</h3>
+        <div class='parent6'>
+            <div class='children6' style='height:300px'>
+                <pre>
+           .parent6{
+             background-color: #33ff33;
+           }
+           .children6{
+             float:left;
+             background-color: skyblue;
+             position:relative;
+             left:50%;
+             transform:translateX(-50%);
+           }
+         </pre>
+            </div>
+            <div style='height:300px'></div>
+        </div>
+        <h3>居中的元素为绝对定位元素</h3>
+        <div class='parent7'>
+            <div class='children7' style='height:300px'>
+                <pre>
+           .parent7{
+             background-color: #33ff33;
+             position:relative;
+           }
+           .children7{
+             background-color: skyblue;
+             position:absolute;
+             left:50%;
+             transform:translateX(-50%);
+           }
+         </pre>
+            </div>
+            <div style='height:300px'></div>
+        </div>
+    </div>
+    <h1>垂直居中</h1>
+    <div>
+      <h3>父元素相对定位，子元素绝对定位</h3>
+      <div class='parent21'>
+          <div class='children21' style="width:300px;">
+              <p>通用垂直居中方式</p>
+              <pre>
+        .parent21{
+          position:relative;
+          background-color: #33ff33;
+        }
+        .children21{
+          background-color: skyblue;
+          position:absolute;
+          top:50%;
+          transform: translateY(-50%);
+        }
+    </pre>
+          </div>
+          <div style="width:300px;height:300px;">子元素采用absolute会导致没有将parent撑起，单独新建一个div将其撑起</div>
+      </div>
+      <h3>flex布局</h3>
+      <div class='parent22'>
+          <div class='children22' style='width:300px;'>
+          <p>适用于子元素为浮动，绝对定位，内联元素，均可垂直居中。</p>
+              <pre>
+        .parent22{
+          display:flex;
+          align-items:center;
+          background-color: #33ff33;
+        }
+        .children22{
+          background-color: skyblue;
+        }
+    </pre>
+          </div>
+      </div>
+      test
+    </div>
+
+    <h3>flex布局绝对中间</h3>
+    <div class='parent23'>
+        <div class='children23' style=''>
+        <p>利用flex-item的margin自动填充对于区域实现</p>
+            <pre>
+      .parent22{
+        display:flex;
+        align-items:center;
+        background-color: #33ff33;
+      }
+      .children22{
+        background-color: skyblue;
+      }
+  </pre>
+        </div>
+    </div>
+    test
+  </div>
+</body>
+
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>测试函数消抖</title>
+        <meta charset='utf-8'>
+        <style>
+           body{
+             height:3000px;
+           }
+        </style>
+    </head>
+    <body>
+        <h1>测试函数消抖</h1>
+        <p>用node搭建能够解析jsonp请求的服务器，前端通过script发送jsonp请求，通过回调处理服务器返回的数据</p>
+        <script>
+            function debounce(func,delay){
+              var time = null;
+              return function(){
+                var context = this;
+                var args = arguments;
+                clearTimeout(time);
+                time = setTimeout(function(){
+                  func.apply(context,args);
+                  }
+                  ,delay);
+              }
+            }
+            function scroll(){
+              console.log('you are scrolling');
+            }
+            // //不保留最后一次操作
+            // function throttling(func,delay){
+            //   var inthrott = false;
+            //   return function(){
+            //     var context = this;
+            //     var args = arguments;
+            //     if(!inthrott){
+            //       func.apply(context,args);
+            //       inthrott = true;
+            //       setTimeout(function(){
+            //         inthrott = false;
+            //       },delay);
+            //     }
+            //   }
+            // };
+            //保留最后一次操作，主要用于处理鼠标拖拽事件,必须保存用户的最后一次拖拽
+            function throttling(func,delay){
+              var inthrott = false;
+              var lastact;
+
+              return function(){
+                var context = this;
+                var args = arguments;
+                if(!inthrott){
+                  func.apply(context,args);
+                  inthrott = true;
+                  setTimeout(function(){
+                    inthrott = false;
+                  },delay);
+                }else {
+                  clearTimeout(lastact);
+                  lastact = setTimeout(function(){
+                    func.apply(context,args);
+                    inthrott = false;
+                  },delay)
+                }
+              }
+            }
+            // window.addEventListener('scroll',debounce(scroll,2000));
+            window.addEventListener('scroll',throttling(scroll,2000));
+        </script>
+    </body>
+</html>

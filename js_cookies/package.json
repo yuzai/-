@@ -1,0 +1,15 @@
+{
+  "name": "js_cookies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpconfig.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.7",
+    "gulp": "^3.9.1"
+  }
+}

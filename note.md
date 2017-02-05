@@ -315,8 +315,9 @@ var last = JSON.stringify(obj);
     ajax全称是 Asynchronous javascript and xml.异步传输js和xml
     异步就是指在向服务器发送请求的时候，不必等待结果，可以做其它事情，等有了结果会根据设定进行后续操作。页面不会整体刷新，提高用户体验。见js_ajax
 29. Ajax解决浏览器缓存问题？
+    **get请求才有可能会缓存,主要是服务器的响应头的设置了Expires，这个表示过期时间，last-Modified,Cathe-Control**
     1. 在ajax发送请求前加上 anyAjaxObj.setRequestHeader("If-Modified-Since","0")。
-
+    //修改文件最后修改时间
     2. 在ajax发送请求前加上 anyAjaxObj.setRequestHeader("Cache-Control","no-cache")。
 
     3. 在URL后面加上一个随机数： "fresh=" + Math.random();。
@@ -324,11 +325,35 @@ var last = JSON.stringify(obj);
     4. 在URL后面加上时间搓："nowtime=" + new Date().getTime();。
 
     5. 如果是使用jQuery，直接这样就可以了 $.ajaxSetup({cache:false})。这样页面的所有ajax都会执行这条语句就是不需要保存缓存记录。
+
+    6. 在服务端加 header(“Cache-Control: no-cache, must-revalidate”);
+
+    9. 设置html的缓存
+      <META HTTP-EQUIV="Pragma" CONTENT="no-cache">    
+      <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">    
+      <META HTTP-EQUIV="Expires" CONTENT="0">
+
 30. 同步和异步的区别?**有待仔细研究**
     同步的概念应该是来自于OS中关于同步的概念:不同进程为协同完成某项工作而在先后次序上调整(通过阻塞,唤醒等方式).同步强调的是顺序性.谁先谁后.异步则不存在这种顺序性.
     同步：浏览器访问服务器请求，用户看得到页面刷新，重新发请求,等请求完，页面刷新，新内容出现，用户看到新内容,进行下一步操作
     异步：浏览器访问服务器请求，用户正常操作，浏览器后端进行请求。等请求完，页面不刷新，新内容也会出现，用户看到新内容。
-31. 如何解决跨域问题?**有待解决**
+31. 如何解决跨域问题?
+    1. jsonp，根本原理是script的src请求不受限制，和服务器端配合从而实现客户端与服务器端的双向通信，缺点在与只能使用get请求
+    需要服务器端配合
+    2. CORS(Cross-origin resource sharing)，根本原理是在服务器端头部，Access-Control-Allow-Origin:'',可以是*或者'null',也可以是具体的域名,比如'http://www.xiaoboma.com'，这样，符合条件的客户端页面可以直接发送ajax请求
+    完全依赖服务器端
+    3. 设置服务器代理，服务器对信息的获取不受同源的限制，客户端页面可以先发送给同源服务器（或者允许该页面CORS的服务器），服务器获取目标数据，返回给客户端，完成ajax请求。从而得到跨域问题的解决。
+    完全依赖服务器端
+    4. html5的websocket可以实现跨域，**具体还有待深入研究**
+    5. iframe+location.hash，主页面改变iframe的src的hash，子页面监听hashchange即可获取父元素页面，子页面也可做相同的事情，从而完成父子元素的通信，缺点是：只能通过url，有长度限制（其实很长，100000长度的字符，没什么大问题），且信息不安全。
+    更倾向于页面通信，双工的话需要两个页面相互支持
+    6. iframe+document.domain,document.domain的设置允许主域相同，子域不同的通信以及cookie的共享
+    重点解决信息在不同二级域名的网站的传递，需要双方均进行domain的设置
+    7. iframe+window.name，利用同一窗口window.name不会修改的特性来实现数据的传递
+    两个页面均需要代码的修改，相互配合
+    8. window.postMessage，新打开的窗口或者iframe中的窗口，可以通过postMessage进行数据的传递
+    子窗口可以调用父窗口的postMessage向父窗口（或父窗口同域）发送信息。父窗口可以调用子窗口的postMessage向子窗口（或子窗口同域）发送消息
+    两个页面的双工通信需要修改两方代码
 32. 页面编码和被请求的资源编码如果不一致如何处理？**有待解决**
 33. 模块化开发怎么做？
     es5主要通过立即执行函数来实现。es6有import export
@@ -398,7 +423,7 @@ var last = JSON.stringify(obj);
     前端路由，即由前端来维护一个路由规则。url的改变直接在前端进行处理，不会传回给服务器端，速度要快很多。且不需要整个页面进行刷新。
     后端路由是用户访问一个url，服务器端渲染完毕把整个页面传回客户端。
     如何实现？
-    1. h5的history  **没有解决**
+    1. h5的history  
     2. location.hash以及hashchange事件
 51. 如何判断当前脚本运行在浏览器还是node环境中？（阿里）
     this === window? 'window':'node'
