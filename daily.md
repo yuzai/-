@@ -9,4 +9,12 @@
 
 ### 2.5
 1. flexbox
-2. media
+2. media以及bootstrap栅格系统实现原理,一些css小trick
+
+### 2.6
+这几个概念相互关联，都是css布局的一些重要概念
+1. block formatting context
+2. clearfix
+3. margin collapse
+4. containing block
+5. normal flow

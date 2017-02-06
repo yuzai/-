@@ -391,6 +391,7 @@ var last = JSON.stringify(obj);
 
     setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
     闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）
+    总结的文章[内存泄漏](http://www.jianshu.com/p/ffaa61170220)
 48. jquery相关。。**有待研究**
     1. JQuery的源码看过吗？能不能简单概况一下它的实现原理？
     2. jQuery.fn的init方法返回的this指的是什么对象？为什么要返回this？

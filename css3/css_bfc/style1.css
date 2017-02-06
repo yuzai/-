@@ -1,0 +1,33 @@
+.container{
+  margin:20px;
+  background-color:darkorchid;
+  border:1px solid blue;
+}
+.item1{
+  margin:20px;
+  background-color: #e88024;
+}
+.newcontainer{
+  background-color:green;
+  overflow:hidden;
+}
+
+
+.left{
+  float:left;
+}
+.container2{
+  margin:20px;
+  overflow:auto;
+  background-color:darkorchid;
+  border:1px solid blue;
+}
+
+
+
+.container3{
+  margin:20px;
+  /*overflow:auto;*/
+  background-color:darkorchid;
+  border:1px solid blue;
+}
