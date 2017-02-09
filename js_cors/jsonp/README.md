@@ -12,3 +12,6 @@ server.js:服务器端代码，处理jsonp请求
 
 ### 主要目的
 在理解jsonp原理的基础上练习jsonp跨域代码的书写，熟悉node的写法
+
+### 介绍文章
+[跨域的解决方案（一）：jsonp及其实现](http://www.jianshu.com/p/9d08d6ce1b60)
