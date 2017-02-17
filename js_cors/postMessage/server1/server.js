@@ -1,9 +1,8 @@
 var http = require('http');
 var fs = require('fs');
 
-var bpage = fs.readFileSync('./a.html');
-
 http.createServer(function(req,res){
+	var bpage = fs.readFileSync('./a.html');
 	res.writeHeader(200,{'content-type':'text/html'});
 	res.end(bpage);
 }).listen(5000);
