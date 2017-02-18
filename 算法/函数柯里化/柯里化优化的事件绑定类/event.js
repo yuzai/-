@@ -39,6 +39,7 @@ var Event = {
     // 移除事件
     //主要优化的点在于函数柯里化，可以不用每次都进行判断
     removeEvent: (function() {
+      //console.log(this);//window
         if (window.removeEventListener) {
             return function(element, type, handler) {
                 element.removeEventListener(type, handler, false);
@@ -57,8 +58,15 @@ var Event = {
     stopPropagation: function(ev) {
         if (ev.stopPropagation) {
             ev.stopPropagation();
+            console.log(this);//Event
+            this.stopPropagation = function(ev) {
+                ev.stopPropagation();
+            }
         } else {
             ev.cancelBubble = true;
+            this.stopPropagation = function(ev) {
+                ev.cancelBubble = true;
+            }
         }
     },
     // 取消事件的默认行为
