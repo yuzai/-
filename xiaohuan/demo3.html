@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container{
+            display:flex;
+            width:300px;
+            height:300px;
+            background-color: #ccc;
+            justify-content: space-between;
+            align-content: space-between;
+            flex-wrap: wrap;
+			margin:10px;
+        }
+.flex-item{
+            background-color:#ccc;
+            width: 30%;
+            height:30%;
+            margin: 1.6%;
+            align-self: flex-start;
+            display:flex;
+        }
+.item{
+background-color:red;
+flex-grow:1;
+}
+.add{
+border:1px dotted gray;
+flex-grow:1;
+}
+.a{
+margin-right:auto;
+
+}
+.flex-container1{
+            display:flex;
+            width:300px;
+            height:300px;
+            background-color: #ccc;
+
+            justify-content: space-between;
+			margin:10px;
+        }
+.item1{
+width:80px;
+flex-grow:1;
+background-color:orange;
+}
+.item3{
+width:60px;
+flex-grow:1;
+background-color:orange;
+}
+.item2{
+background-color:blue;
+flex-grow:2;}
+</style>
+</head>
+<body>
+<button id="btn">add item</button>
+<div class="flex-container">
+<div class="flex-item"> <button class="add">+</button> </div>
+<div class="flex-item"></div>
+<div class="flex-item"></div>
+<div class="flex-item"></div>
+<div class="flex-item"></div>
+<div class="flex-item"></div>
+<div class="flex-item"></div>
+<div class="flex-item"></div>
+<div class="flex-item"></div>
+ </div>
+
+ <div class="flex-container1">
+ <div class="item1">q</div>
+ <div class="item2"></div>
+ <div class="item3">w</div>
+ </div>
+
+<script>
+
+var arr=[];
+document.getElementsByClassName('add')[0].onclick=function(){
+  var item=document.getElementsByClassName('flex-item')[arr.length];
+  var button=document.getElementsByClassName('add')[0];
+
+  item.innerHTML='';
+  var div = document.createElement("div");
+  div.setAttribute("class", "item");
+  div.innerHTML = arr.length;
+  item.appendChild(div);
+
+
+  if(arr.length<8){
+    console.log(arr.length)
+    var item1=document.getElementsByClassName('flex-item')[arr.length+1];
+    item1.appendChild(button);
+    arr.push(arr.length);
+  }
+}
+</script>
+</body>
+</html>

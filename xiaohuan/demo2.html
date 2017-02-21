@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.flex-container{
+            display:flex;
+            width:300px;
+            height:300px;
+            background-color: #ccc;
+            justify-content: space-around;
+            align-content: flex-start; 
+            flex-wrap: wrap;
+			margin:10px;
+        }
+.flex-item{
+            background-color:blue;
+            width: 30%;
+            height:90px;
+            margin: 5px;
+            align-self: flex-start;
+            
+        }
+.a{
+margin-right:auto;
+
+}
+.flex-container1{
+            display:flex;
+            width:300px;
+            height:300px;
+            background-color: #ccc;
+			
+            justify-content: space-between;
+			margin:10px;
+        }
+.item1{
+width:80px;
+flex-grow:1;
+background-color:orange;
+}
+.item3{
+width:60px;
+flex-grow:1;
+background-color:orange;
+}
+.item2{
+background-color:blue;
+flex-grow:2;
+</style>
+</head>
+<body>
+<button id="btn">add item</button>
+<div class="flex-container">
+ </div>
+
+ <div class="flex-container1">
+ <div class="item1">q</div>
+ <div class="item2"></div>
+ <div class="item3">w</div>
+ </div>
+<p><b>注释：</b>IE 不支持 box-flex 属性。</p>
+<script>
+var i=0;
+document.getElementById('btn').onclick=function(){
+var item=document.getElementsByClassName('flex-item a')[0];
+if(item){
+item.setAttribute("class", "flex-item");}
+var div = document.createElement("div");
+　　　　//设置 div 属性，如 id
+　　　　div.setAttribute("class", "flex-item a");
+
+　　　　div.innerHTML = i;
+i++;
+document.getElementsByClassName('flex-container')[0].appendChild(div);
+}
+</script>
+</body>
+</html>
