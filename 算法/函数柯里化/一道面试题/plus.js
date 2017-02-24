@@ -32,6 +32,6 @@ function plus(n){
   // };
   // return result;
 }
-console.log(plus(4)(6).toString());
+alert(plus(4)(6));
 
 module.exports = plus
