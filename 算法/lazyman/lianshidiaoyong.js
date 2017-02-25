@@ -60,78 +60,139 @@
 // console.log(_.map(a, function(v){return ++v;}))
 // console.log(_.chain(a).map(function(v){return ++v;}).forEach(function(v){console.log(v);}).value())
 
-//lazyman
-var lazyman = function(name,age){
-  return new _mychain(name,age);
-};
+// //lazyman
+// var lazyman = function(name,age){
+//   return new _mychain(name,age);
+// };
+//
+// var _mychain = function(name,age){
+//   this.name = name;
+//   this.age = age;
+//   this.task = [];
+//   var self = this;
+//   var fn = (function(n){
+//     var name = n;
+//     return function(){
+//       console.log('my name is '+name);
+//       self.next();
+//     }
+//   })(name);
+//   this.task.push(fn);
+//   setTimeout(function(){
+//     self.next();
+//   },0);
+// };
+// _mychain.prototype.next = function(){
+//   var fn = this.task.shift();
+//   fn && fn();
+// };
+// _mychain.prototype.sayage = function(){
+//   var self = this;
+//   var fn  = (function(age){
+//     return function(){
+//       console.log('my age is '+age);
+//       self.next();
+//     }
+//   })(this.age);
+//   this.task.push(fn);
+//   return this;
+// };
+// _mychain.prototype.eat = function(name){
+//   var self = this;
+//   var fn  = (function(name){
+//     return function(){
+//       console.log('eat '+name);
+//       self.next();
+//     }
+//   })(name);
+//   this.task.push(fn);
+//   return this;
+// };
+// _mychain.prototype.sleep = function(time){
+//   var self = this;
+//   var fn = (function(time){
+//     return function(){
+//       setTimeout(function(){
+//         console.log('sleep for '+time+'s');
+//         self.next();
+//       },time*1000);
+//     }
+//   })(time);
+//   this.task.push(fn);
+//   return this;
+// }
+// _mychain.prototype.sleepFirst = function(time){
+//   var self = this;
+//   var fn = (function(time){
+//     return function(){
+//       setTimeout(function(){
+//         console.log('sleep first for '+time+'s');
+//         self.next();
+//       },time*1000);
+//     }
+//   })(time);
+//   this.task.unshift(fn);
+//   return this;
+// }
+// lazyman('xiaobo',23).eat('lunch').eat('dinner').sleep(5).sleepFirst(2).sayage();
 
-var _mychain = function(name,age){
-  this.name = name;
-  this.age = age;
-  this.task = [];
-  var self = this;
-  var fn = (function(n){
-    var name = n;
+
+//loadsh
+function Task(){
+  this.queen = [];
+  this.queenIndex = 0;
+  this.loopCount = 0;
+  this.loopIndex = 0;
+  this.loopStart = 0;
+  Task.prototype.__proto__ = task_proto;
+  for(var method in task_proto){
+    Task.prototype[method] = (function(method){
     return function(){
-      console.log('my name is '+name);
-      self.next();
-    }
-  })(name);
-  this.task.push(fn);
-  setTimeout(function(){
-    self.next();
-  },0);
+          this.queen.push({
+            name:method,
+            fn:Task.prototype.__proto__[method],
+            args:arguments
+          });
+          if(method === 'done'){
+            this.next();
+          }
+          return this;
+        }
+    })(method)
+  }
 };
-_mychain.prototype.next = function(){
-  var fn = this.task.shift();
-  fn && fn();
-};
-_mychain.prototype.sayage = function(){
-  var self = this;
-  var fn  = (function(age){
-    return function(){
-      console.log('my age is '+age);
-      self.next();
-    }
-  })(this.age);
-  this.task.push(fn);
-  return this;
-};
-_mychain.prototype.eat = function(name){
-  var self = this;
-  var fn  = (function(name){
-    return function(){
-      console.log('eat '+name);
-      self.next();
-    }
-  })(name);
-  this.task.push(fn);
-  return this;
-};
-_mychain.prototype.sleep = function(time){
-  var self = this;
-  var fn = (function(time){
-    return function(){
-      setTimeout(function(){
-        console.log('sleep for '+time+'s');
-        self.next();
-      },time*1000);
-    }
-  })(time);
-  this.task.push(fn);
-  return this;
+Task.prototype.next = function(){
+  var task = this.queen[this.queenIndex];
+  console.log(this.queen);
+  console.log(task.fn);
+  task.fn.apply(this,task.args);
+  if(task.name!=='done'){
+    this.queenIndex++;
+    this.next();
+  }else {
+    this.queen = [];
+    this.queenIndex = 0;
+  }
 }
-_mychain.prototype.sleepFirst = function(time){
-  var self = this;
-  var fn = (function(time){
-    return function(){
-      setTimeout(function(){
-        console.log('sleep first for '+time+'s');
-        self.next();
-      },time*1000);
+var task_proto = {
+  loop:function(num){
+    this.loopStart = this.queenIndex;
+    this.loopCount = num;
+  },
+  job:function(str){
+    console.log(str);
+  },
+  end:function(){
+    this.loopIndex++;
+    if(this.loopIndex<this.loopCount){
+      this.queenIndex = this.loopStart;
+    }else {
+      this.loopIndex = 0;
     }
-  })(time);
-  this.task.unshift(fn);
-  return this;
-}
-lazyman('xiaobo',23).eat('lunch').eat('dinner').sleep(5).sleepFirst(2).sayage();
+  },
+  done:function(){
+    console.log('done');
+  }
+};
+var t = new Task();
+console.log(t.job('student').job('333').done());

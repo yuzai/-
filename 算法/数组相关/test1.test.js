@@ -6,13 +6,13 @@ describe('无序数组乘积最大三元素',function(){
   it('test1',function(){
     assert.equal(test1([1,2,3,5,4,-1,-5,-6]),150);
   });
-  it('test1',function(){
+  it('test2',function(){
     assert.equal(test1([1,2,3,5,4]),60);
   });
-  it('test1',function(){
+  it('test3',function(){
     assert.equal(test1([-1,-2,-3,-5,-4]),-6);
   });
-  it('test1',function(){
+  it('test4',function(){
     assert.equal(test1([-1,-2,3,5,4]),60);
   });
 })

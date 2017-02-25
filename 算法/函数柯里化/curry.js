@@ -35,7 +35,7 @@ function curry(func){
 			return func.apply(this,args);
 		}else {
 			//否则，存储参数到闭包中，返回本函数
-			[].push.apply(args,arguments);
+			args = args.concat([].slice.apply(arguments));
 			return _func;
 		}
 	}
