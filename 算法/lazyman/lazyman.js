@@ -1,13 +1,17 @@
-function lazyman(name){
-  return new _lazyman(name);
+//lazyman
+var lazyman = function(name,age){
+  return new _mychain(name,age);
 };
 
-function _lazyman(name){
-  var task = [];
+var _mychain = function(name,age){
+  this.name = name;
+  this.age = age;
+  this.task = [];
   var self = this;
   var fn = (function(n){
+    var name = n;
     return function(){
-      console.log('Hi this is '+n+'!');
+      console.log('my name is '+name);
       self.next();
     }
   })(name);
@@ -15,22 +19,57 @@ function _lazyman(name){
   setTimeout(function(){
     self.next();
   },0);
-}
-_lazyman.prototype.next = function(){
-  var fn = this.tasks.shift();
+};
+_mychain.prototype.next = function(){
+  var fn = this.task.shift();
   fn && fn();
-}
-_lazyman.prototype.eat = function(name){
+};
+_mychain.prototype.sayage = function(){
   var self = this;
-  var fn = (function(n){
+  var fn  = (function(age){
     return function(){
-      console.log('Eat '+n+'~');
+      console.log('my age is '+age);
       self.next();
     }
-  })(name)
+  })(this.age);
+  this.task.push(fn);
+  return this;
+};
+_mychain.prototype.eat = function(name){
+  var self = this;
+  var fn  = (function(name){
+    return function(){
+      console.log('eat '+name);
+      self.next();
+    }
+  })(name);
+  this.task.push(fn);
+  return this;
+};
+_mychain.prototype.sleep = function(time){
+  var self = this;
+  var fn = (function(time){
+    return function(){
+      setTimeout(function(){
+        console.log('sleep for '+time+'s');
+        self.next();
+      },time*1000);
+    }
+  })(time);
   this.task.push(fn);
   return this;
 }
-_lazyman.prototype.sleep = function(time){
-
+_mychain.prototype.sleepFirst = function(time){
+  var self = this;
+  var fn = (function(time){
+    return function(){
+      setTimeout(function(){
+        console.log('sleep first for '+time+'s');
+        self.next();
+      },time*1000);
+    }
+  })(time);
+  this.task.unshift(fn);
+  return this;
 }
+lazyman('xiaobo',23).eat('lunch').eat('dinner').sleep(5).sleepFirst(2).sayage();

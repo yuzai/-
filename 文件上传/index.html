@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>图片上传</title>
+    <style>
+       #wp{
+         margin:10%;
+       }
+       #uploadFile{
+         display:block;
+         padding:10px;
+         width:110px;
+         overflow:hidden;
+       }
+       #imgcontainer{
+         width:300px;
+         height:300px;
+         background-color: grey;
+       }
+       .btn{
+         margin:10px;
+         padding:10px;
+         display:block;
+       }
+    </style>
+</head>
+
+<body>
+    <div id="wp" class="warpper">
+        <input id="uploadFile" type="file" name="myPhoto">
+        <p id='progress'></p>
+        <div id='imgcontainer'></div>
+        <button id="btnConfirm" class="btn">确认上传</button>
+        <div id="maskLayer" class="mask-layers" style="display:none;">
+            <p>图片正在上传中...</p>
+        </div>
+    </div>
+    <script src='/main.js'></script>
+</body>
+
+</html>
