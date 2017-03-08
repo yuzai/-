@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>touch事件</title>
+  <style>
+      #div1{
+        height:600px;
+        width:100%;
+        background-color: skyblue;
+      }
+  </style>
+</head>
+
+<body>
+  <div id='div1' onclick='showDialog()'></div>
+  <script >function showDialog() {
+    var float = function(title,content){
+      this.title = title;
+      this.content = content;
+    };
+    float.prototype.init = function(){
+      //mask
+      var mask = document.createElement('div');
+      mask.id='mask';
+      mask.style.position = "fixed";
+      mask.style.zIndex = "100";
+      _scrollWidth = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
+      _scrollHeight = Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+      mask.style.width = _scrollWidth + "px";
+      mask.style.height = _scrollHeight + "px";
+      mask.style.top = "0px";
+      mask.style.left = "0px";
+      mask.style.background = "#000";
+      mask.style.filter = "alpha(opacity=50)";
+      mask.style.opacity = "0.50";
+      // mask.style.display = 'none';
+      document.body.appendChild(mask);
+
+      //弹出框
+      var newDiv = document.createElement("div");
+      newDiv.id='newDiv';
+      newDiv.style.position = "absolute";
+      newDiv.style.zIndex = "9999";
+      newDivWidth = 400;
+      newDivHeight = 200;
+      newDiv.style.width = newDivWidth + "px";
+      newDiv.style.height = newDivHeight + "px";
+      newDiv.style.top = (document.body.scrollTop + document.body.clientHeight/2 - newDivHeight/2) + "px";
+      newDiv.style.left = (document.body.scrollLeft + document.body.clientWidth/2 - newDivWidth/2) + "px";
+      newDiv.style.padding = "5px";
+      // newDiv.style.display = 'none';
+      newDiv.innerHTML = '<p style="background-color:skyblue;margin:0;width:400px;padding:0;">'+this.title+'</p>'+'<textarea style="padding:0;margin:0;width:400px;height:200px;">'+this.content+'</textarea>'+
+      '<div style="display:flex;justify-content:center;flex-flow:row nowrap;"><button id="yes">确认</button><button id="no">取消</button></div>';
+      document.body.appendChild(newDiv);
+      var yes = document.getElementById('yes');
+      var no = document.getElementById('no');
+      yes.onclick = function(){
+        document.body.removeChild(document.getElementById('mask'));
+        document.body.removeChild(document.getElementById('newDiv'));
+      }
+      no.onclick = function(){
+        document.body.removeChild(document.getElementById('mask'));
+        document.body.removeChild(document.getElementById('newDiv'));
+      }
+    }
+    var floater = new float('对话框标题','对话框内容');
+    floater.init();
+  }
+  </script>
+</body>
+
+</html>

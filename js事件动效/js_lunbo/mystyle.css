@@ -1,0 +1,19 @@
+body,div,ul,li,a,img{padding:0;margin:0;}
+ul,li{list-style: none;}
+a{text-decoration: none;}
+#wrapper{width:400px;height:200px;position:relative;margin:30px auto;}
+#banner{width:400px;height:200px;position:relative;overflow:hidden;}
+.imgList{width:2000px;height:200px;overflow: hidden;z-index:10;position:relative;}
+.imgList li{float:left;display:inline;}
+#prev,#next{position:absolute;top:80px;z-index:20;filter:alpha(opacity=20);opacity:0.2;cursor:pointer;}
+#prev{left:10px;}
+#next{right:10px;}
+#prev:hover,#next:hover{opacity: 0.5;filter:alpha(opacity=50);}
+.bg{width:400px;height:40px;position:absolute;bottom:0;z-index:20;opacity: 0.4;filter:alpha(opacity=40);background: black;}
+
+.infoList{position:absolute;bottom:10px;left:10px;z-index:30;}
+.infoList li{display:none;}
+.infoList .infoOn{display:inline;color:white;}
+.indexList{position:absolute;bottom:5px;right:10px;z-index:30;}
+.indexList li{float:left;margin-right:5px;padding:2px 4px;border:2px solid black;background: grey;cursor: pointer;}
+.indexList .indexOn{background: red;font-weight: bold;color: white;}
