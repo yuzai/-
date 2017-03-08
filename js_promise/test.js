@@ -97,21 +97,23 @@
 // };
 
 
-function taskA(){
-    console.log('taskA');
-} 
-function taskB(){
-    console.log('taskB');
+function taskA() {
+    console.log("Task A");
+    throw new Error("throw Error @ Task A")
 }
-function taskC(){
-    console.log('taskC');
+function taskB() {
+    console.log("Task B");// 不会被调用
 }
-function error(){
-    console.log('error');
+function onRejected(error) {
+    console.log(error);// => "throw Error @ Task A"
 }
-Promise.reject('123')
-.then(taskA)
-.then(taskB)
-.catch(error)//一旦出错，会去后面找catch，而不一定是第一个catch
-.then(taskC);
-console.log('taskme');
+function finalTask() {
+    console.log("Final Task");
+}
+
+var promise = Promise.resolve();
+promise
+    .then(taskA)
+    .then(taskB)
+    .catch(onRejected)
+    .then(finalTask);
