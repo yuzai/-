@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+<ul onclick = "ul(event)" id='list'>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+</ul>
+<button onclick = "change()">替换一个节点</button>
+<script>
+    function ul(event){
+    	console.log(event.target);
+    }
+    var i=9;
+    function change(){
+    	var ul = document.getElementById('list');
+    	console.log(ul.children);
+    	var rand = Math.floor(Math.random()*8);
+    	var li = document.createElement('li');
+    	li.innerHTML = i;
+        ul.insertBefore(li,ul.children[rand]);
+        i++;
+    }
+</script>
+</body>
+</html>
