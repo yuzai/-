@@ -7,8 +7,11 @@ function compare() {
     var arr = gen();
     console.log(arr);
     if (sort.bubble(arr).toString() === sort.normal(arr).toString()) {
-        if (sort.quick(arr).toString() === sort.normal(arr).toString())
-          return true;
+        if (sort.quick(arr).toString() === sort.normal(arr).toString()){
+          if(sort.quick2(arr).toString() === sort.normal(arr).toString()){
+            return true;
+          }
+        }
     }
     return false;
 }

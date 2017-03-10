@@ -47,17 +47,17 @@ function quick(arr){
 //3. 快速排序2
 function quick_sort2(arr){
   var _arr = arr.slice();
-  return quick_sort(_arr);
+  return quick_sort(_arr,0,_arr.length-1);
 }
-function quick_sort(arr){
-  if(arr.length<=1)
+function quick_sort(arr,i,j){
+  if((j-i)<=1)
   {
     return arr;
   }
-  var left = 0;
-  var right = arr.length-1;
-  var base = 0;
-  var center = arr[0];
+  var left = i;
+  var right = j;
+  var base = left;
+  var center = arr[left];
   while(left<right){
     while(left<right && arr[right]>=center){
       right--;
@@ -66,7 +66,6 @@ function quick_sort(arr){
     {
       arr[left] = arr[right];
       left++;
-      console.log(arr);
     }
     while(left<right && arr[left]<center){
       left++;
@@ -74,12 +73,13 @@ function quick_sort(arr){
     if(left<right){
       arr[right] = arr[left];
       right--;
-      console.log(arr);
     }
   }
   base = left;
   arr[base] = center;
-  return quick_sort(arr.slice(0,base)).concat(arr[base],quick_sort(arr.slice(base+1)));
+  quick_sort(arr,i,base-1);
+  quick_sort(arr,(base+1),j);
+  return arr;
 }
 //3. 原生方法排序
 function normal(arr){
@@ -88,7 +88,8 @@ function normal(arr){
 module.exports = {
   bubble:bubble,
   quick:quick,
-  normal:normal
+  normal:normal,
+  quick2:quick_sort2
 }
 var arr = [3,1,3,6,2,7,9,2,1,0,1,2];
 console.log(arr.slice());
