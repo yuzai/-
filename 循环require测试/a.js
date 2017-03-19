@@ -1,5 +1,6 @@
-
-
-module.exports.a = 1;
+var s = 5;
+module.exports.a = function(){
+	console.log(s);
+};
 var b = require('./b');
-console.log('a.js get b:' + b.b);
+console.log(b.b);
