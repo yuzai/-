@@ -50,7 +50,7 @@ function quick_sort2(arr){
   return quick_sort(_arr,0,_arr.length-1);
 }
 function quick_sort(arr,i,j){
-  if((j-i)<=1)
+  if((j-i)<1)
   {
     return arr;
   }

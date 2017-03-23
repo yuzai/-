@@ -24,15 +24,15 @@
               data : {}
             });
             function jsonp(){
-              if(jsonpdata === undefined){
+              // if(jsonpdata === undefined){
                 var temp = document.createElement('script');
+                temp.onload = function(){
+                	document.body.removeChild(temp);
+                }
                 temp.src = "http://localhost:3000/jsonp?callback=test";
                 document.body.appendChild(temp);
-              }else {
-                test(jsonpdata);
-              }
+              // /
             }
         </script>
-        <!-- <script src="http://localhost:3000/jsonp?callback=test"></script> -->
     </body>
 </html>
