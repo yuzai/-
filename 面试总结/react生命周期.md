@@ -37,3 +37,7 @@
 2. 实现的方案很简单，通过正常的ajax获取数据，问题在于ajax回调函数的写法，在回调中，如何将数据反映到dom上，事实上，解决方案也很简单，就是回调中通过setState来更新state，从而达到组件的更新。但是问题在于 **回调的时候setState()函数执行的时机很关键**，如果执行setState的时候组件没有componentDidMount，那么这个时候react内部就会报错，也应该报错（因为这个时候react还没有把虚拟dom真正应用到真实dom上）。
 3. 综上，在react中，ajax的获取应该放在componentDidMount生命周期函数中，同时在回调执行setState时最好判断一下this.isMounted()来决定是否执行setState,最大可能的避免报错
 一个ajax[小例子](http://codepen.io/yuzai20/pen/evVvwN?editors=1010)
+
+
+### es6定义的生命周期
+
