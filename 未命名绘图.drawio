@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-02T10:42:50.134Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="fdd5m9KAecaytr1avyO8" version="20.2.8" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-02T10:48:00.306Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="ZeUPCp8bA_TEj5uo4Al1" version="20.2.8" type="github">
   <diagram id="s8NYqJLzQeODFpnqqtf_" name="第 1 页">
     <mxGraphModel dx="946" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -95,60 +95,60 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-4" value="元素曝光采集" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="230" y="690" width="120" height="60" as="geometry" />
+          <mxGeometry x="230" y="620" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" edge="1" parent="1" source="WQ2MlSCACtrah5VNE3MD-5" target="WQ2MlSCACtrah5VNE3MD-35">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-5" value="元素点击点采集" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="510" y="690" width="120" height="60" as="geometry" />
+          <mxGeometry x="510" y="620" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=12;" edge="1" parent="1" source="WQ2MlSCACtrah5VNE3MD-6" target="WQ2MlSCACtrah5VNE3MD-8">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-6" value="intersectionObserver&lt;br&gt;监听新元素&lt;br&gt;取消旧元素监听&lt;br&gt;(svg元素特殊处理)" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="230" y="1030" width="120" height="60" as="geometry" />
+          <mxGeometry x="230" y="960" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-8" value="无需处理，在回调中根据元素计算 xpath 并进行匹配埋点上报即可" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="30" y="910" width="120" height="60" as="geometry" />
+          <mxGeometry x="30" y="840" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="1" source="WQ2MlSCACtrah5VNE3MD-13" target="WQ2MlSCACtrah5VNE3MD-21">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-13" value="dom树变更检测&lt;br&gt;排除属性变更&lt;br&gt;节流后触发" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="30" y="690" width="120" height="60" as="geometry" />
+          <mxGeometry x="30" y="620" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" edge="1" parent="1" source="WQ2MlSCACtrah5VNE3MD-21" target="WQ2MlSCACtrah5VNE3MD-25">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-21" value="通过 xpath 获取元素并缓存" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="230" y="810" width="120" height="60" as="geometry" />
+          <mxGeometry x="230" y="740" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" edge="1" parent="1" source="WQ2MlSCACtrah5VNE3MD-25" target="WQ2MlSCACtrah5VNE3MD-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=12;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQ2MlSCACtrah5VNE3MD-25" target="WQ2MlSCACtrah5VNE3MD-8">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="150" y="930" as="targetPoint" />
+            <mxPoint x="150" y="860" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-25" value="新元素与缓存是否一致" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="225" y="900" width="130" height="80" as="geometry" />
+          <mxGeometry x="225" y="830" width="130" height="80" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-31" value="不一致" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="240" y="980" width="60" height="30" as="geometry" />
+          <mxGeometry x="240" y="910" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-33" value="一致" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="162" y="900" width="50" height="30" as="geometry" />
+          <mxGeometry x="162" y="830" width="50" height="30" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" edge="1" parent="1" source="WQ2MlSCACtrah5VNE3MD-35" target="WQ2MlSCACtrah5VNE3MD-37">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-35" value="body 捕获阶段监听&lt;br&gt;计算元素 xpath 对比" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="510" y="830" width="120" height="60" as="geometry" />
+          <mxGeometry x="510" y="760" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WQ2MlSCACtrah5VNE3MD-37" value="需要判断点击元素，是否是目标元素的子元素" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="510" y="970" width="120" height="60" as="geometry" />
+          <mxGeometry x="510" y="900" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ew40sH9bl0qWfCfkTv_5-1" value="埋点平台采集页面" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="105" y="1150" width="120" height="60" as="geometry" />
