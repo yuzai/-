@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-02T09:12:08.234Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="CqoJ3MPppgQaJO-bNfua" version="20.2.8" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-02T09:35:15.154Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="YTpMFQEYhioGi45V73cF" version="20.2.8" type="github">
   <diagram id="s8NYqJLzQeODFpnqqtf_" name="第 1 页">
     <mxGraphModel dx="926" dy="506" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -201,7 +201,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="ew40sH9bl0qWfCfkTv_5-17" value="node psql服务" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ew40sH9bl0qWfCfkTv_5-17" value="node psql服务&lt;br&gt;专门处理和现有埋点平台的处理" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="690" y="1270" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ew40sH9bl0qWfCfkTv_5-19" value="node 后台管理服务" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -216,7 +216,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="ew40sH9bl0qWfCfkTv_5-21" value="node c端服务" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="ew40sH9bl0qWfCfkTv_5-21" value="node c端服务&lt;br&gt;需要支持高并发，redies缓存等" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="500" y="1440" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
