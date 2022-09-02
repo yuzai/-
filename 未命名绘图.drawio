@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-02T09:11:17.981Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="xjoqrWiawcwWDJszyKB2" version="20.2.8" type="github">
+<mxfile host="app.diagrams.net" modified="2022-09-02T09:12:08.234Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" etag="CqoJ3MPppgQaJO-bNfua" version="20.2.8" type="github">
   <diagram id="s8NYqJLzQeODFpnqqtf_" name="第 1 页">
     <mxGraphModel dx="926" dy="506" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -13,7 +13,7 @@
         <mxCell id="eg9R9L4fMUv5J7RdRfmF-1" value="埋点平台" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="35" y="75" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eg9R9L4fMUv5J7RdRfmF-2" value="采集sdk" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;" parent="1" vertex="1">
+        <mxCell id="eg9R9L4fMUv5J7RdRfmF-2" value="圈选sdk" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="240" y="75" width="90" height="40" as="geometry" />
         </mxCell>
         <mxCell id="eg9R9L4fMUv5J7RdRfmF-3" value="" style="endArrow=classic;html=1;rounded=0;fontSize=18;exitX=1.067;exitY=0.301;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.2;entryY=0.135;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="AP1hK9MuxTNP_AilY-IY-1" edge="1">
